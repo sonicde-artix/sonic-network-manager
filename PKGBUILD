@@ -1,14 +1,16 @@
 # Maintainer: callmetango
 # Contributor: artist <artist@artixlinux.org>
+# Contributor: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Antonio Rojas <arojas@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=sonic-network-manager
 pkgver=6.6.5
-pkgrel=2
-#_commit="9402eca9b8b38399e24da784a50dc03e51fd4a70"
-pkgdesc='Sonic applet written in QML for managing network connections'
+pkgrel=3
+pkgdesc='SonicDE applet written in QML for managing network connections'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-network-manager'
-license=(LGPL)
+license=(GPL-2.0-or-later)
 depends=(gcc-libs
          glib2
          glibc
@@ -36,22 +38,21 @@ depends=(gcc-libs
          qt6-base
          qt6-declarative
          solid
-         sonic-frameworks-io
+         sonic-frameworks-core-addons
          sonic-frameworks-io
          sonic-frameworks-quick-ui
          sonic-frameworks-windowsystem
          sonic-interface-libraries
          sonic-workspace)
-makedepends=(extra-cmake-modules
-             openconnect
-	     qt6-webengine)
+makedepends=(openconnect
+             qt6-webengine
+             sonic-frameworks-cmake-modules)
 optdepends=('openconnect: Cisco AnyConnect VPN plugin'
             'qrca: QR code scanner'
             'qt6-webengine: Cisco AnyConnect VPN plugin')
-groups=(sonicde)
-conflicts=(plasma-nm)
 provides=(plasma-nm)
-replaces=(plasma-nm)
+conflicts=(plasma-nm)
+groups=(sonicde)
 source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
 sha256sums=('bd030602d1b9a2b189f1d1e5f6eaccebc77dd3bbe39658a75092e44458da20d5')
 
